@@ -16,18 +16,30 @@ func main() {
 	checkError(err)
 	N := int32(NTemp)
 
-	fmt.Scan(&N)
-
 	if N%2 != 0 {
 		fmt.Println("Weird")
 	}
 
-}
-
-func checkError(err error) {
-	if err != nil {
-		panic(err)
+	if N%2 == 0 {
+		for i := 2; i < 6; i++ {
+			if int(N) == i {
+				fmt.Println("Not Weird")
+			}
+		}
 	}
+
+	if N%2 == 0 {
+		for i := 6; i < 21; i++ {
+			if int(N) == i {
+				fmt.Println("Weird")
+			}
+		}
+	}
+
+	if N%2 == 0 && N > 20 {
+		fmt.Println("Not Weird")
+	}
+
 }
 
 func readLine(reader *bufio.Reader) string {
@@ -37,4 +49,10 @@ func readLine(reader *bufio.Reader) string {
 	}
 
 	return strings.TrimRight(string(str), "\r\n")
+}
+
+func checkError(err error) {
+	if err != nil {
+		panic(err)
+	}
 }
